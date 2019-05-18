@@ -32,7 +32,7 @@ def main() :
     app = config.make_wsgi_app()
 
   # run the server
-  server = make_server('127.0.0.1', 8080, app)
+  server = make_server('0.0.0.0', 8080, app)
   print("The server is now running on: http://127.0.0.1:8080")
   
   try:
