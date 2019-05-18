@@ -1,3 +1,4 @@
+import os
 from wsgiref.simple_server import make_server # the wsgiref webserver (default with Python)
 from pyramid.config import Configurator
 
@@ -31,8 +32,9 @@ def main() :
     # create the webserver config
     app = config.make_wsgi_app()
 
+    port = int(os.environ.get("PORT", 5000))
   # run the server
-  server = make_server('0.0.0.0', 8080, app)
+  server = make_server('0.0.0.0', port, app)
   print("The server is now running on: http://127.0.0.1:8080")
   
   try:
